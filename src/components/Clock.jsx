@@ -5,11 +5,14 @@ import TwoSquare from "./Squares/TwoSquare";
 import OneSquare from "./Squares/OneSquare";
 
 const Clock = () => {
-  const CurrentTime = new Date();
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-  const Hours = CurrentTime.getHours(); // Hours of the CurrentTime.
+  const ChangeTime = (num) => {
+    const updatedTime = new Date(currentTime);
+    updatedTime.setMinutes(updatedTime.getMinutes() + num);
+    setCurrentTime(updatedTime);
+  };
 
-  const Minutes = CurrentTime.getMinutes(); // Minutes of the CurrentTime.
   const fibonacciNumbers = [1, 1, 2, 3, 5]; // fibonacci first 5 numbers.
 
   const findAllCombinations = (fibNumbers, target) => {
@@ -39,18 +42,32 @@ const Clock = () => {
     findCombinations(0, 0, []);
     return results;
   };
+  const CombinationsHoures = findAllCombinations(
+    fibonacciNumbers,
+    currentTime.Hours % 12
+  ); // the Combinations  that we need :
+  // const CombinationsMinutes = findAllCombinations(fibonacciNumbers, );
+  // console.log(CombinationsHoures);
+  // console.log(`------------------------------`);
 
-  const Combinations = findAllCombinations(fibonacciNumbers, Hours % 12); // the Combinations  that we need :
-  console.log(Combinations);
+  // console.log(`and for the minutes :${CombinationsMinutes}`);
 
   return (
     <>
-      <div>
+      <div style={{ margin: "10%" }}>
         <h1>Clock Time :</h1>
+        {/* displaying time in a form H am pm : M ------------------------ */}
         <p>
-          Current time {Hours > 12 ? (Hours % 12) + " PM" : Hours + "AM"} :{" "}
-          {Minutes}{" "}
+          Current time{" "}
+          {currentTime.getHours() > 12
+            ? (currentTime.getHours() % 12) + " PM"
+            : currentTime.getHours() + "AM"}{" "}
+          : {currentTime.getMinutes()}
+          {" M"}
         </p>
+        {/* Buttons to update time + 5 min or - 5 mins */}
+        <button onClick={() => ChangeTime(-5)}>Back</button>
+        <button onClick={() => ChangeTime(5)}>Forward</button>
       </div>
 
       <section>
