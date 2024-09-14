@@ -1,7 +1,8 @@
 .clock-container {
   border: 2px solid black;
-  padding: 10px;
+  padding: 40px;
   display: flex;
+  justify-content: center;
 }
 
 .clock-square {
@@ -12,4 +13,9 @@
   justify-content: center;
 
   border: 1px solid black;
+}
+
+.clock-container div {
+  border: 1px solid black;
+  text-align: center;
 }
