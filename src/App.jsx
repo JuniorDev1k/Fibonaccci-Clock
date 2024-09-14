@@ -86,6 +86,7 @@ const App = () => {
 
     return result;
   };
+
   // getting random variant from all variants.
 
   const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -114,7 +115,7 @@ const App = () => {
         </p>
         <div className="btns">
           <button onClick={() => ChangeTime(-5)}>Back</button>
-          <button onClick={() => ChangeTime(5)}>Forward</button>
+          <button onClick={() => ChangeTime(5)}>Next</button>
         </div>
       </div>
       <div className="clock-container">
