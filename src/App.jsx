@@ -17,8 +17,6 @@ const App = () => {
 
   const Minutes = currentTime.getMinutes();
 
-  console.log(Hours, Math.trunc(Minutes / 5));
-
   // fibonacci first 5 numbers.
   const fibonacciNumbers = [1, 1, 2, 3, 5];
 
@@ -57,7 +55,6 @@ const App = () => {
   // finding the colors based on the comparing numbers
   const findColors = (arr1, arr2) => {
     const result = [];
-
     const countArr1 = arr1.reduce((acc, num) => {
       acc[num] = (acc[num] || 0) + 1;
       return acc;
@@ -74,7 +71,12 @@ const App = () => {
       if (isInArr1 > 0 && isInArr2 > 0) {
         result.push({ value: num, color: "blue" });
       } else if (isInArr1 > 0) {
-        result.push({ value: num, color: "red" });
+        if (countArr1[num] === 1) {
+          result.push({ value: num, color: "red" });
+          countArr1[num]--;
+        } else {
+          result.push({ value: num, color: "white" });
+        }
       } else if (isInArr2 > 0) {
         result.push({ value: num, color: "green" });
       } else {
@@ -84,21 +86,19 @@ const App = () => {
 
     return result;
   };
-
   // getting random variant from all variants.
-  // ----------------------------------------------------------------------
+
   const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-  const hourComb = getRandomElement(
+  const hourCombination = getRandomElement(
     findAllCombinations(fibonacciNumbers, Hours)
   );
-  const minuteComo = getRandomElement(
+  const minuteCombination = getRandomElement(
     findAllCombinations(fibonacciNumbers, Math.trunc(Minutes / 5))
   );
 
   // the Final Results :
-  const result = findColors(hourComb, minuteComo);
-  console.log(result);
+  const result = findColors(hourCombination, minuteCombination);
 
   return (
     <div className="container">
@@ -107,7 +107,7 @@ const App = () => {
         <p>
           <span style={{ marginRight: "5px" }}>
             {currentTime.getHours() > 12
-              ? (currentTime.getHours() % 12) + "PM"
+              ? (currentTime.getHours() % 12) + " PM"
               : currentTime.getHours() + " AM"}
           </span>
           {Minutes}
