@@ -1,5 +1,12 @@
 import React from "react";
 import "./index.css";
+import {
+  Clock,
+  OneSquare,
+  ThreeSquare,
+  TwoSquare,
+  FiveSquare,
+} from "../src/components";
 
 const fibonacciNumbers = [1, 1, 2, 3, 5];
 
@@ -53,38 +60,17 @@ const App = () => {
 
   return (
     <div className="clock-container">
-      {/* {result.map((item, index) => {
-        return (
-          <div
-            id={`${item.value}`}
-            key={index}
-            className={`clock-square`}
-            style={{ padding: item.value * 10, backgroundColor: item.color }}
-          >
-            {item.value}
-          </div>
-        );
-      })} */}
-
       <div>
         <div style={{ display: "flex" }}>
-          <div style={{ padding: 2 * 20, backgroundColor: result[2].color }}>
-            2
-          </div>
+          <TwoSquare Color={result[2].color} />
           <div>
-            <div style={{ padding: 1 * 20, backgroundColor: result[0].color }}>
-              1
-            </div>
-            <div style={{ padding: 1 * 20, backgroundColor: result[1].color }}>
-              1
-            </div>
+            <OneSquare Color={result[0].color} />
+            <OneSquare Color={result[1].color} />
           </div>
         </div>
-        <div style={{ padding: 3 * 20, backgroundColor: result[3].color }}>
-          3
-        </div>
+        <ThreeSquare Color={result[3].color} />
       </div>
-      <div style={{ padding: 5 * 20, backgroundColor: result[4].color }}>5</div>
+      <FiveSquare Color={result[4].color} />
     </div>
   );
 };

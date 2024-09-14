@@ -1,11 +1,7 @@
 import React from "react";
 
-const FiveSquare = (Color, size) => {
-  return (
-    <div className="sqaure" style={{ padding: "50px" }}>
-      5
-    </div>
-  );
+const FiveSquare = ({ Color }) => {
+  return <div style={{ padding: "50px", backgroundColor: Color }}>5</div>;
 };
 
 export default FiveSquare;
