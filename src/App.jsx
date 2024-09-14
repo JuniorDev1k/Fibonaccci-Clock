@@ -1,22 +1,30 @@
 import React from "react";
-import "./App.css";
+import "./index.css";
 
 const fibonacciNumbers = [1, 1, 2, 3, 5];
 
 const findColors = (arr1, arr2) => {
   const result = [];
-  const allFibonacci = new Set(fibonacciNumbers);
-  const setArr2 = new Set(arr2);
 
-  allFibonacci.forEach((num) => {
-    const isInArr1 = arr1.includes(num);
-    const isInArr2 = arr2.includes(num);
+  const countArr1 = arr1.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {});
+  const countArr2 = arr2.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {});
 
-    if (isInArr1 && isInArr2) {
+  fibonacciNumbers.forEach((num) => {
+    const isInArr1 = countArr1[num] || 0;
+    const isInArr2 = countArr2[num] || 0;
+
+    if (isInArr1 > 0 && isInArr2 > 0) {
       result.push({ value: num, color: "blue" });
-    } else if (isInArr1) {
+    } else if (isInArr1 > 0) {
       result.push({ value: num, color: "red" });
-    } else if (isInArr2) {
+    } else if (isInArr2 > 0) {
       result.push({ value: num, color: "green" });
     } else {
       result.push({ value: num, color: "white" });
@@ -38,7 +46,6 @@ const CompareCombinations = (objH, objM) => {
   return results;
 };
 
-// Example hour and minute combinations (replace with actual logic)
 const hourCombinations = [
   [1, 1],
   [2, 3],
@@ -51,10 +58,17 @@ const App = () => {
   const results = CompareCombinations(hourCombinations, minuteCombinations);
 
   return (
-    <div className="clock-container">
-      {results.flat().map((item, index) => (
-        <div key={index} className={`clock-square ${item.color}`}>
-          {item.value}
+    <div className="clock-wrapper">
+      {results.map((result, index) => (
+        <div key={index} className="clock-container">
+          <h3>Variant {index + 1}</h3>
+          <div className="clock-grid">
+            {result.map((item, idx) => (
+              <div key={idx} className={`clock-square ${item.color}`}>
+                {item.value}
+              </div>
+            ))}
+          </div>
         </div>
       ))}
     </div>

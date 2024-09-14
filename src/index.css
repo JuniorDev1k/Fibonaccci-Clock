@@ -30,25 +30,35 @@ button {
   margin: 40px;
 } */
 
-.clock-container {
+.clock-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  width: 300px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.clock-container {
   border: 2px solid black;
   padding: 10px;
-  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.clock-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
 }
 
 .clock-square {
-  width: 40px;
-  height: 40px;
-  margin: 2px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: black;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 4px;
 }
 
