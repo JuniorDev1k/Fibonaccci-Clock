@@ -6,14 +6,13 @@ import OneSquare from "./Squares/OneSquare";
 
 const Clock = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const fibonacciNumbers = [1, 1, 2, 3, 5]; // fibonacci first 5 numbers.
 
   const ChangeTime = (num) => {
     const updatedTime = new Date(currentTime);
     updatedTime.setMinutes(updatedTime.getMinutes() + num);
     setCurrentTime(updatedTime);
   };
-
-  const fibonacciNumbers = [1, 1, 2, 3, 5]; // fibonacci first 5 numbers.
 
   const findAllCombinations = (fibNumbers, target) => {
     const results = []; // To store all valid Combinations
@@ -51,6 +50,45 @@ const Clock = () => {
   // console.log(`------------------------------`);
 
   // console.log(`and for the minutes :${CombinationsMinutes}`);
+
+  let a = 0;
+  let b = 0;
+
+  // algorithm for comparing combinations to find out the color we use  (green red || blue )
+  const findColors = (arr1, arr2) => {
+    for (item of arr1) {
+      for (i of arr2) {
+        if (item === i) {
+          a++;
+        }
+      }
+      a === 0
+        ? console.error(`${item} is RED `)
+        : console.log(`${item} is BLUE`);
+      a = 0;
+    }
+
+    for (item of arr2) {
+      for (i of arr1) {
+        if (item === i) {
+          a++;
+        }
+      }
+      a === 0
+        ? console.error(`${item} is GREEN `)
+        : console.log(`${item} is BLUE`);
+      a = 0;
+    }
+  };
+
+  // here we compare all the combinations of the minutes and the hours, to choose the colors.
+  const CompareCobinations = (objH, objM) => {
+    for (arr of objH) {
+      for (arr2 of objM) {
+        findColors(arr, arr2);
+      }
+    }
+  };
 
   return (
     <>
