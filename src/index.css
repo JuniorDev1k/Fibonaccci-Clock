@@ -1,11 +1,22 @@
+body {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+p {
+  text-align: center;
+}
 .container {
   display: flex;
+
   flex-direction: column;
   align-items: center;
   padding: 40px;
+  gap: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .clock-container {
-  padding: 40px;
   display: flex;
   justify-content: center;
 }
@@ -17,17 +28,25 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid black;
+  border: 1px solid rgb(132, 132, 132);
 }
 
 .clock-container div {
-  border: 1px solid black;
+  border: 1px solid rgba(42, 41, 41, 0.142);
   text-align: center;
 }
-p {
-  text-align: center;
-}
+
 .btns {
   display: flex;
   justify-content: space-between;
+}
+button {
+  padding: 9px 15px 9px 15px;
+  border-radius: 0.4rem;
+  border: none;
+  transition: all 0.4s;
+}
+button:hover {
+  background-color: rgb(20, 20, 236);
+  color: white;
 }
