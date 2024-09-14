@@ -1,53 +1,7 @@
-/* .clock-grid div {
-  text-align: center;
-}
-.clock-grid {
-  display: flex;
-  gap: 2px;
-}
-
-#five {
-  padding: 80px;
-  border: 1px solid black;
-}
-
-#three {
-  padding: 53px;
-  border: 1px solid black;
-}
-#two {
-  padding: 30px;
-  border: 1px solid black;
-}
-.one {
-  padding: 14px;
-  border: 1px solid black;
-}
-button {
-  padding: 7px;
-  background-color: cadetblue;
-  border-radius: 10px;
-  margin: 40px;
-} */
-
-.clock-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-}
-
 .clock-container {
   border: 2px solid black;
   padding: 10px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.clock-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
+  display: flex;
 }
 
 .clock-square {
@@ -56,25 +10,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 4px;
-}
 
-.clock-square.blue {
-  background-color: blue;
-}
-
-.clock-square.red {
-  background-color: red;
-}
-
-.clock-square.green {
-  background-color: green;
-}
-
-.clock-square.white {
-  background-color: white;
-  border: 1px solid gray; /* Optional: border for white squares */
+  border: 1px solid black;
 }

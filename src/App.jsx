@@ -8,7 +8,6 @@ const findColors = (arr1, arr2) => {
 
   const countArr1 = arr1.reduce((acc, num) => {
     acc[num] = (acc[num] || 0) + 1;
-    acc[num] = (acc[num] || 0) + 1;
     return acc;
   }, {});
   const countArr2 = arr2.reduce((acc, num) => {
@@ -34,17 +33,7 @@ const findColors = (arr1, arr2) => {
   return result;
 };
 
-const CompareCombinations = (objH, objM) => {
-  let results = [];
-
-  objH.forEach((arrH) => {
-    objM.forEach((arrM) => {
-      results.push(findColors(arrH, arrM));
-    });
-  });
-
-  return results;
-};
+const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 const hourCombinations = [
   [1, 1],
@@ -55,22 +44,25 @@ const hourCombinations = [
 const minuteCombinations = [[1, 2, 3], [5], [1, 2, 5]];
 
 const App = () => {
-  const results = CompareCombinations(hourCombinations, minuteCombinations);
+  const hourComb = getRandomElement(hourCombinations);
+  const minuteComo = getRandomElement(minuteCombinations);
+
+  const result = findColors(hourComb, minuteComo);
+  // console.log(result);
 
   return (
-    <div className="clock-wrapper">
-      {results.map((result, index) => (
-        <div key={index} className="clock-container">
-          <h3>Variant {index + 1}</h3>
-          <div className="clock-grid">
-            {result.map((item, idx) => (
-              <div key={idx} className={`clock-square ${item.color}`}>
-                {item.value}
-              </div>
-            ))}
+    <div className="clock-container">
+      {result.map((item, index) => {
+        return (
+          <div
+            key={index}
+            className="clock-square"
+            style={{ padding: item.value * 10, backgroundColor: item.color }}
+          >
+            {item.value}
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
