@@ -1,4 +1,4 @@
-.clock-grid div {
+/* .clock-grid div {
   text-align: center;
 }
 .clock-grid {
@@ -28,4 +28,43 @@ button {
   background-color: cadetblue;
   border-radius: 10px;
   margin: 40px;
+} */
+
+.clock-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  border: 2px solid black;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.clock-square {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.clock-square.blue {
+  background-color: blue;
+}
+
+.clock-square.red {
+  background-color: red;
+}
+
+.clock-square.green {
+  background-color: green;
+}
+
+.clock-square.white {
+  background-color: white;
+  border: 1px solid gray; /* Optional: border for white squares */
 }
