@@ -6,6 +6,6 @@ import Clock from "./components/Clock.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Clock />
+    <App />
   </StrictMode>
 );
