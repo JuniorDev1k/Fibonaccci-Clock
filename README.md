@@ -1,8 +1,32 @@
-# React + Vite
+# Fibonacci Clock React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple SPA that displays Time in a fibonacci colored squares form build with react
 
-Currently, two official plugins are available:
+ # Getting Started : 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ These instructions will help you set up the project locally  || or simply se this liks : https://fibonaccciclock.vercel.app
+
+ # Installation
+   1 - Clone the repository:
+  ```bash
+    git clone https://github.com/JuniorDev1k/Fibonaccci-Clock.git
+```
+
+   2 - Navigate to the project directory:
+  ```
+    cd my-fibonacci
+```
+
+   3 - intall packages :
+  ```
+    npm i
+```
+
+   4 - Run project : 
+   ```
+    npm run dev
+```
+
+
+
+
