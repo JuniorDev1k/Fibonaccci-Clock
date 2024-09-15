@@ -15,14 +15,14 @@ const App = () => {
       ? currentTime.getHours() % 12
       : currentTime.getHours();
 
-  const Minutes = currentTime.getMinutes();
+  const Minutes = Math.ceil(currentTime.getMinutes() / 5) * 5;
 
   // fibonacci first 5 numbers.
   const fibonacciNumbers = [1, 1, 2, 3, 5];
 
   const ChangeTime = (num) => {
     const updatedTime = new Date(currentTime);
-    updatedTime.setMinutes(updatedTime.getMinutes() + num);
+    updatedTime.setMinutes(Math.ceil(updatedTime.getMinutes() / 5) * 5 + num);
     setCurrentTime(updatedTime);
   };
 
